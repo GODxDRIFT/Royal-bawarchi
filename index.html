@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Royal Bawarchi Restaurant | Bold Flavours, Royal Experience</title>
+<meta name="description" content="The Royal Bawarchi - Authentic Indian, Chinese & Tandoori restaurant in New Delhi. 4.9★ rated. Order on Swiggy, Zomato, Uber Eats. Call 8800028618.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #C0392B;
+  --red-dark: #922B21;
+  --red-deeper: #641E16;
+  --gold: #F39C12;
+  --gold-light: #F8C471;
+  --gold-pale: #FDEBD0;
+  --cream: #FFF8F0;
+  --dark: #1A0A00;
+  --dark2: #2D1500;
+  --dark3: #3D1A00;
+  --text: #4A2800;
+  --white: #ffffff;
+  --shadow-gold: 0 0 30px rgba(243,156,18,0.4);
+  --shadow-red: 0 0 30px rgba(192,57,43,0.5);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ── CUSTOM CURSOR ── */
+#cursor {
+  width: 12px; height: 12px;
+  background: var(--gold);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%,-50%);
+  transition: transform 0.1s ease, background 0.2s ease, width 0.2s ease, height 0.2s ease;
+  box-shadow: 0 0 10px var(--gold), 0 0 20px rgba(243,156,18,0.5);
+  mix-blend-mode: normal;
+}
+#cursor.hover {
+  width: 28px; height: 28px;
+  background: var(--gold);
+  opacity: 0.7;
+}
+
+/* ── NAVBAR ── */
+#navbar {
+  position: fixed; top:0; left:0; right:0; z-index:1000;
+  padding: 16px 5%;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.4s ease;
+  background: transparent;
+}
+#navbar.scrolled {
+  background: rgba(26,10,0,0.97);
+  backdrop-filter: blur(12px);
+  padding: 12px 5%;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+  border-bottom: 1px solid rgba(243,156,18,0.2);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+.nav-logo-icon {
+  font-size: 28px;
+  filter: drop-shadow(0 0 8px var(--gold));
+}
+.nav-logo-text {
+  display: flex; flex-direction: column; line-height: 1.1;
+}
+.nav-logo-text span:first-child {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px; font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.nav-logo-text span:last-child {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px; font-weight: 900;
+  color: var(--white);
+  letter-spacing: 1px;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 28px;
+  list-style: none;
+}
+.nav-links a {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute; bottom:-4px; left:0; right:0;
+  height: 2px; background: var(--gold);
+  transform: scaleX(0); transform-origin: center;
+  transition: transform 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.btn-order-nav {
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
+  color: var(--white) !important;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  border: 1px solid var(--gold);
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(192,57,43,0.4);
+}
+.btn-order-nav:hover {
+  background: linear-gradient(135deg, var(--gold), #E67E22) !important;
+  color: var(--dark) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(243,156,18,0.5) !important;
+}
+.btn-order-nav::after { display: none !important; }
+.hamburger {
+  display: none;
+  flex-direction: column; gap: 5px;
+  cursor: none; background: none; border: none;
+  padding: 4px;
+}
+.hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: var(--white); border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* ── HERO ── */
+#hero {
+  height: 100vh; min-height: 600px;
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  background: var(--dark);
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(192,57,43,0.6) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 30%, rgba(243,156,18,0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, rgba(100,30,22,0.8) 0%, transparent 70%),
+    linear-gradient(135deg, #1A0A00 0%, #3D1A00 40%, #641E16 70%, #1A0A00 100%);
+  z-index: 0;
+}
+.hero-pattern {
+  position: absolute; inset: 0; z-index: 1;
+  opacity: 0.06;
+  background-image:
+    repeating-linear-gradient(45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%),
+    repeating-linear-gradient(-45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%);
+  background-size: 30px 30px;
+}
+.hero-mandala {
+  position: absolute;
+  width: 600px; height: 600px;
+  right: -100px; top: 50%; transform: translateY(-50%);
+  border-radius: 50%;
+  border: 1px solid rgba(243,156,18,0.1);
+  z-index: 1;
+  animation: spinSlow 60s linear infinite;
+}
+.hero-mandala::before, .hero-mandala::after {
+  content: '';
+  position: absolute; inset: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(243,156,18,0.08);
+}
+.hero-mandala::after { inset: 40px; }
+@keyframes spinSlow { to { transform: translateY(-50%) rotate(360deg); } }
+
+.hero-content {
+  position: relative; z-index: 2;
+  text-align: center;
+  padding: 0 20px;
+  max-width: 900px;
+}
+.hero-hindi {
+  font-family: 'Noto Sans Devanagari', serif;
+  font-size: clamp(13px, 2vw, 16px);
+  color: var(--gold);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.2s forwards;
+}
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  line-height: 1.05;
+  margin-bottom: 16px;
+}
+.hero-title .line1 {
+  display: block;
+  font-size: clamp(56px, 11vw, 110px);
+  font-weight: 900;
+  color: var(--white);
+  opacity: 0;
+  animation: fadeInUp 0.9s ease 0.5s forwards;
+  text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+}
+.hero-title .line2 {
+  display: block;
+  font-size: clamp(44px, 8.5vw, 84px);
+  font-weight: 700;
+  font-style: italic;
+  background: linear-gradient(135deg, var(--gold) 0%, #F8C471 40%, var(--gold) 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0;
+  animation: fadeInUp 0.9s ease 0.8s forwards;
+  filter: drop-shadow(0 0 20px rgba(243,156,18,0.4));
+}
+.hero-cuisine {
+  font-size: clamp(12px, 2vw, 15px);
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 1.1s forwards;
+}
+.hero-cuisine span { color: var(--gold); font-weight: 600; }
+.hero-divider {
+  width: 80px; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 28px;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 1.3s forwards;
+}
+.hero-stars {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  margin-bottom: 36px;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 1.4s forwards;
+}
+.hero-stars .stars-emoji { font-size: 18px; letter-spacing: 2px; }
+.hero-stars .rating { font-size: 22px; font-weight: 700; color: var(--gold); }
+.hero-stars .reviews { font-size: 13px; color: rgba(255,255,255,0.6); }
+.hero-btns {
+  display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 1.6s forwards;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold), #E67E22);
+  color: var(--dark);
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 25px rgba(243,156,18,0.4);
+  text-transform: uppercase;
+}
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 40px rgba(243,156,18,0.6);
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--white);
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border: 2px solid rgba(255,255,255,0.4);
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+.btn-secondary:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(243,156,18,0.2);
+}
+.hero-scroll {
+  position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+  z-index: 2;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 2s forwards;
+}
+.hero-scroll span { font-size: 10px; letter-spacing: 3px; color: rgba(255,255,255,0.4); text-transform: uppercase; }
+.scroll-line {
+  width: 1px; height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollPulse 1.5s ease infinite;
+}
+@keyframes scrollPulse { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+/* ── ORDER PLATFORMS ── */
+#order-platforms {
+  padding: 60px 5%;
+  background: var(--dark);
+  border-top: 1px solid rgba(243,156,18,0.15);
+  border-bottom: 1px solid rgba(243,156,18,0.15);
+}
+.section-label {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 700;
+  text-align: center;
+  color: var(--white);
+  margin-bottom: 40px;
+}
+.section-title span { color: var(--gold); font-style: italic; }
+.platforms-grid {
+  display: flex; flex-wrap: wrap; gap: 16px;
+  justify-content: center;
+  max-width: 900px; margin: 0 auto;
+}
+.platform-btn {
+  display: flex; align-items: center; gap: 12px;
+  padding: 16px 30px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  min-width: 190px;
+  justify-content: center;
+}
+.platform-btn .p-icon { font-size: 24px; }
+.platform-swiggy {
+  background: #1C1C1C;
+  color: #FC8019;
+  border-color: rgba(252,128,25,0.3);
+}
+.platform-swiggy:hover {
+  background: #FC8019; color: #fff;
+  border-color: #FC8019;
+  transform: scale(1.05) translateY(-3px);
+  box-shadow: 0 10px 35px rgba(252,128,25,0.5);
+}
+.platform-zomato {
+  background: #1C1C1C;
+  color: #E23744;
+  border-color: rgba(226,55,68,0.3);
+}
+.platform-zomato:hover {
+  background: #E23744; color: #fff;
+  border-color: #E23744;
+  transform: scale(1.05) translateY(-3px);
+  box-shadow: 0 10px 35px rgba(226,55,68,0.5);
+}
+.platform-magicpin {
+  background: #1C1C1C;
+  color: #9B59B6;
+  border-color: rgba(155,89,182,0.3);
+}
+.platform-magicpin:hover {
+  background: #9B59B6; color: #fff;
+  border-color: #9B59B6;
+  transform: scale(1.05) translateY(-3px);
+  box-shadow: 0 10px 35px rgba(155,89,182,0.5);
+}
+.platform-uber {
+  background: #1C1C1C;
+  color: #d4d4d4;
+  border-color: rgba(255,255,255,0.15);
+}
+.platform-uber:hover {
+  background: #333; color: #fff;
+  border-color: #fff;
+  transform: scale(1.05) translateY(-3px);
+  box-shadow: 0 10px 35px rgba(255,255,255,0.15);
+}
+
+/* ── ABOUT ── */
+#about {
+  padding: 100px 5%;
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+#about::before {
+  content: '🍛';
+  position: absolute;
+  font-size: 300px;
+  opacity: 0.03;
+  right: -50px; top: 50%; transform: translateY(-50%);
+  pointer-events: none;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  max-width: 1200px; margin: 0 auto;
+}
+.about-left .section-label { text-align: left; color: var(--red); }
+.about-left .section-title { text-align: left; color: var(--dark); }
+.about-left p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #6B3A1F;
+  margin-bottom: 16px;
+}
+.about-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
+  color: var(--white);
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 12px;
+  box-shadow: 0 6px 20px rgba(192,57,43,0.3);
+}
+.about-cards {
+  display: flex; flex-direction: column; gap: 20px;
+}
+.about-card {
+  background: linear-gradient(135deg, var(--white), var(--cream));
+  border: 1px solid rgba(243,156,18,0.2);
+  border-radius: 20px;
+  padding: 28px 30px;
+  display: flex; align-items: center; gap: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  position: relative;
+  overflow: hidden;
+}
+.about-card::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+  background: linear-gradient(to bottom, var(--gold), var(--red));
+  border-radius: 4px 0 0 4px;
+}
+.about-card:hover {
+  transform: translateX(8px);
+  box-shadow: 0 8px 35px rgba(243,156,18,0.2);
+  border-color: var(--gold);
+}
+.about-card-icon {
+  width: 60px; height: 60px;
+  background: linear-gradient(135deg, var(--red), var(--gold));
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px;
+  flex-shrink: 0;
+  box-shadow: 0 6px 20px rgba(192,57,43,0.3);
+}
+.about-card-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px; font-weight: 900;
+  color: var(--red);
+  line-height: 1;
+}
+.about-card-label {
+  font-size: 13px;
+  color: #8B5A2B;
+  font-weight: 500;
+}
+
+/* ── MENU ── */
+#menu {
+  padding: 100px 5%;
+  background: var(--dark);
+  position: relative;
+  overflow: hidden;
+}
+#menu::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 60px,
+    rgba(243,156,18,0.02) 60px, rgba(243,156,18,0.02) 61px
+  );
+}
+.menu-section-title { color: var(--white) !important; }
+.menu-tabs {
+  display: flex; gap: 4px;
+  justify-content: center;
+  margin-bottom: 50px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 60px;
+  padding: 6px;
+  max-width: 480px;
+  margin-left: auto; margin-right: auto;
+  margin-bottom: 50px;
+  border: 1px solid rgba(243,156,18,0.15);
+}
+.tab-btn {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  background: transparent;
+  color: rgba(255,255,255,0.5);
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: none;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+.tab-btn.active {
+  background: linear-gradient(135deg, var(--red), var(--gold));
+  color: var(--white);
+  box-shadow: 0 4px 20px rgba(192,57,43,0.4);
+}
+.tab-btn:hover:not(.active) { color: var(--gold); }
+.tab-content { display: none; }
+.tab-content.active {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  animation: tabFadeIn 0.4s ease;
+}
+@keyframes tabFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.dish-card {
+  background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  border: 1px solid rgba(243,156,18,0.15);
+  border-radius: 20px;
+  padding: 28px 24px;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: none;
+}
+.dish-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at top right, rgba(243,156,18,0.08), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.dish-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold);
+  box-shadow: 0 20px 50px rgba(243,156,18,0.25), 0 0 0 1px rgba(243,156,18,0.2);
+}
+.dish-card:hover::before { opacity: 1; }
+.dish-emoji {
+  font-size: 40px;
+  margin-bottom: 14px;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+}
+.dish-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px; font-weight: 700;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.dish-desc {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.dish-footer {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.dish-price {
+  font-size: 22px; font-weight: 700;
+  color: var(--gold);
+  font-family: 'Playfair Display', serif;
+}
+.dish-tag {
+  font-size: 10px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.tag-veg { background: rgba(46,204,113,0.15); color: #2ECC71; border: 1px solid rgba(46,204,113,0.3); }
+.tag-nonveg { background: rgba(231,76,60,0.15); color: #E74C3C; border: 1px solid rgba(231,76,60,0.3); }
+
+/* ── WHY CHOOSE US ── */
+#why {
+  padding: 100px 5%;
+  background: linear-gradient(135deg, var(--cream) 0%, #FEF5E7 100%);
+  position: relative;
+}
+.why-title { color: var(--dark) !important; }
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
+  max-width: 1100px; margin: 0 auto;
+}
+.why-card {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 40px 28px;
+  text-align: center;
+  border: 1px solid rgba(243,156,18,0.15);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+}
+.why-card::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--red), var(--gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.why-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(243,156,18,0.2);
+  border-color: var(--gold);
+}
+.why-card:hover::after { transform: scaleX(1); }
+.why-icon {
+  width: 80px; height: 80px;
+  background: linear-gradient(135deg, var(--red), var(--gold));
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 34px;
+  margin: 0 auto 20px;
+  box-shadow: 0 8px 25px rgba(192,57,43,0.3);
+}
+.why-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px; font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+.why-card p { font-size: 13px; color: #8B5A2B; line-height: 1.7; }
+
+/* ── TESTIMONIALS ── */
+#testimonials {
+  padding: 100px 5%;
+  background: var(--dark2);
+  position: relative;
+  overflow: hidden;
+}
+#testimonials::before {
+  content: '"';
+  position: absolute;
+  font-family: 'Playfair Display', serif;
+  font-size: 400px;
+  color: rgba(243,156,18,0.03);
+  top: -50px; left: 5%;
+  line-height: 1;
+  pointer-events: none;
+}
+.testimonials-section-title { color: var(--white) !important; }
+.testimonials-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+.testimonials-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.testimonial-slide {
+  min-width: 100%;
+  padding: 0 20px;
+}
+.testimonial-card {
+  background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  border: 1px solid rgba(243,156,18,0.2);
+  border-radius: 28px;
+  padding: 48px 44px;
+  text-align: center;
+  position: relative;
+}
+.t-quote {
+  font-size: 60px;
+  color: var(--gold);
+  opacity: 0.3;
+  line-height: 0.8;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 8px;
+}
+.t-text {
+  font-size: 16px;
+  font-style: italic;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.8;
+  margin-bottom: 28px;
+}
+.t-stars { font-size: 22px; margin-bottom: 16px; letter-spacing: 3px; }
+.t-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px; font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.t-meta { font-size: 12px; color: rgba(255,255,255,0.4); letter-spacing: 1px; }
+.t-dots {
+  display: flex; justify-content: center; gap: 8px;
+  margin-top: 32px;
+}
+.t-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  cursor: none;
+  transition: all 0.3s;
+  border: none;
+}
+.t-dot.active {
+  background: var(--gold);
+  width: 24px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(243,156,18,0.5);
+}
+
+/* ── LOCATION ── */
+#location {
+  padding: 100px 5%;
+  background: var(--cream);
+}
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: start;
+  max-width: 1200px; margin: 0 auto;
+}
+.map-container {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  border: 3px solid rgba(243,156,18,0.3);
+  height: 420px;
+}
+.map-container iframe {
+  width: 100%; height: 100%;
+  border: none;
+  display: block;
+}
+.location-info .section-label { text-align: left; color: var(--red); }
+.location-info .section-title { text-align: left; color: var(--dark); font-size: clamp(24px, 3vw, 36px); margin-bottom: 30px; }
+.info-item {
+  display: flex; gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  padding: 20px 22px;
+  background: var(--white);
+  border-radius: 16px;
+  border: 1px solid rgba(243,156,18,0.15);
+  transition: all 0.3s;
+}
+.info-item:hover {
+  border-color: var(--gold);
+  box-shadow: 0 8px 25px rgba(243,156,18,0.15);
+  transform: translateX(4px);
+}
+.info-icon {
+  width: 48px; height: 48px;
+  background: linear-gradient(135deg, var(--red), var(--gold));
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.info-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; color: var(--red); text-transform: uppercase; margin-bottom: 4px; }
+.info-value { font-size: 14px; color: var(--text); font-weight: 500; line-height: 1.5; }
+.info-value a { color: var(--red); text-decoration: none; font-weight: 700; }
+.info-value a:hover { color: var(--gold); }
+
+/* ── CONTACT ── */
+#contact {
+  padding: 100px 5%;
+  background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);
+  position: relative;
+  overflow: hidden;
+}
+#contact::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    -45deg, transparent, transparent 30px,
+    rgba(243,156,18,0.02) 30px, rgba(243,156,18,0.02) 31px
+  );
+}
+.contact-title { color: var(--white) !important; }
+.contact-inner {
+  max-width: 600px; margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.contact-form {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(243,156,18,0.2);
+  border-radius: 28px;
+  padding: 50px 44px;
+  backdrop-filter: blur(10px);
+}
+.form-group { margin-bottom: 24px; }
+.form-group label {
+  display: block;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(243,156,18,0.2);
+  border-radius: 12px;
+  padding: 14px 18px;
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  transition: all 0.3s;
+  outline: none;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--gold);
+  background: rgba(243,156,18,0.08);
+  box-shadow: 0 0 20px rgba(243,156,18,0.15);
+}
+.form-group textarea { resize: vertical; min-height: 120px; }
+.btn-submit {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--red), var(--gold));
+  border: none;
+  border-radius: 12px;
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 25px rgba(192,57,43,0.4);
+}
+.btn-submit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(192,57,43,0.6);
+}
+.btn-submit:active { transform: translateY(0); }
+#form-success {
+  display: none;
+  text-align: center;
+  padding: 20px;
+  color: #2ECC71;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--dark);
+  border-top: 1px solid rgba(243,156,18,0.2);
+  padding: 60px 5% 28px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 50px;
+  max-width: 1200px; margin: 0 auto;
+  margin-bottom: 48px;
+}
+.footer-brand .nav-logo { margin-bottom: 16px; }
+.footer-brand p {
+  font-size: 13px; color: rgba(255,255,255,0.45);
+  line-height: 1.8; max-width: 280px;
+}
+.footer-col h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px; color: var(--gold);
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul a {
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.3s;
+}
+.footer-col ul a:hover { color: var(--gold); }
+.social-links {
+  display: flex; gap: 12px; margin-top: 20px;
+}
+.social-link {
+  width: 42px; height: 42px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(243,156,18,0.2);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.social-link:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(243,156,18,0.3);
+}
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px;
+  max-width: 1200px; margin: 0 auto;
+}
+.footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.3); }
+.footer-bottom .heart { color: var(--red); }
+
+/* ── REVEAL ANIMATIONS ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── FLOATING SPICE PARTICLES ── */
+.spice-particle {
+  position: fixed;
+  pointer-events: none;
+  font-size: 18px;
+  opacity: 0;
+  z-index: 9998;
+  animation: floatParticle 2s ease forwards;
+}
+@keyframes floatParticle {
+  0% { opacity: 0.8; transform: translateY(0) scale(1) rotate(0deg); }
+  100% { opacity: 0; transform: translateY(-80px) scale(0.5) rotate(180deg); }
+}
+
+/* ── GOLD DIVIDER ── */
+.gold-divider {
+  display: flex; align-items: center; gap: 12px;
+  max-width: 200px; margin: 0 auto 50px;
+}
+.gold-divider::before, .gold-divider::after {
+  content: ''; flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+.gold-divider::after { background: linear-gradient(90deg, var(--gold), transparent); }
+.gold-divider span { font-size: 18px; }
+
+/* ── MOBILE NAV ── */
+.mobile-menu {
+  position: fixed;
+  top: 0; right: -100%;
+  width: 75%; max-width: 300px;
+  height: 100vh;
+  background: linear-gradient(180deg, var(--dark), var(--dark2));
+  z-index: 999;
+  padding: 80px 30px 30px;
+  transition: right 0.4s ease;
+  border-left: 1px solid rgba(243,156,18,0.15);
+}
+.mobile-menu.open { right: 0; }
+.mobile-menu ul { list-style: none; }
+.mobile-menu ul li { margin-bottom: 24px; }
+.mobile-menu ul a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 16px; font-weight: 500;
+  display: block;
+  transition: color 0.3s;
+}
+.mobile-menu ul a:hover { color: var(--gold); }
+.mobile-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 998;
+}
+.mobile-overlay.open { display: block; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .about-grid, .location-grid { grid-template-columns: 1fr; }
+  .about-cards { flex-direction: row; flex-wrap: wrap; }
+  .about-card { flex: 1; min-width: 200px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-brand { grid-column: 1/-1; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .contact-form { padding: 30px 22px; }
+  .testimonial-card { padding: 32px 24px; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .platforms-grid { gap: 12px; }
+  .platform-btn { min-width: 100%; }
+  .hero-btns { flex-direction: column; align-items: center; }
+  .t-text { font-size: 14px; }
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cursor"></div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>
+<nav class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
+    <li><a href="#menu" onclick="closeMobileMenu()">Menu</a></li>
+    <li><a href="#why" onclick="closeMobileMenu()">Why Us</a></li>
+    <li><a href="#testimonials" onclick="closeMobileMenu()">Reviews</a></li>
+    <li><a href="#location" onclick="closeMobileMenu()">Find Us</a></li>
+    <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+    <li><a href="https://maps.app.goo.gl/QFkuvBXipchHiP2h9" target="_blank" style="color: var(--gold); font-weight: 700;" onclick="closeMobileMenu()">🛵 Order Now</a></li>
+  </ul>
+</nav>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-icon">👑</span>
+    <div class="nav-logo-text">
+      <span>The Royal</span>
+      <span>Bawarchi</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#location">Find Us</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://maps.app.goo.gl/QFkuvBXipchHiP2h9" target="_blank" class="btn-order-nav">🛵 Order Now</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="openMobileMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-mandala"></div>
+  <div class="hero-content">
+    <p class="hero-hindi">जय जगन्नाथ — स्वागत है आपका</p>
+    <h1 class="hero-title">
+      <span class="line1">Bold</span>
+      <span class="line2">Flavours</span>
+    </h1>
+    <p class="hero-cuisine">
+      <span>Indian</span> &nbsp;·&nbsp; <span>Chinese</span> &nbsp;·&nbsp; <span>Tandoori</span>
+    </p>
+    <div class="hero-divider"></div>
+    <div class="hero-stars">
+      <span class="stars-emoji">⭐⭐⭐⭐⭐</span>
+      <span class="rating">4.9</span>
+      <span class="reviews">&nbsp;(123 Reviews)</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-primary">🍽️ View Menu</a>
+      <a href="https://maps.app.goo.gl/QFkuvBXipchHiP2h9" target="_blank" class="btn-secondary">🛵 Order Now</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ORDER PLATFORMS -->
+<section id="order-platforms">
+  <p class="section-label reveal">Available On</p>
+  <h2 class="section-title reveal">Order Your <span>Favourite</span> Right Now</h2>
+  <div class="gold-divider reveal"><span>🍛</span></div>
+  <div class="platforms-grid">
+    <a href="https://maps.app.goo.gl/QFkuvBXipchHiP2h9" target="_blank" class="platform-btn platform-swiggy reveal reveal-delay-1">
+      <span class="p-icon">🟠</span> Swiggy
+    </a>
+    <a href="https://maps.app.goo.gl/QFkuvBXipchHiP2h9" target="_blank" class="platform-btn platform-zomato reveal reveal-delay-2">
+      <span class="p-icon">🔴</span> Zomato
+    </a>
+    <a href="https://maps.app.goo.gl/QFkuvBXipchHiP2h9" target="_blank" class="platform-btn platform-magicpin reveal reveal-delay-3">
+      <span class="p-icon">💜</span> MagicPin
+    </a>
+    <a href="https://maps.app.goo.gl/QFkuvBXipchHiP2h9" target="_blank" class="platform-btn platform-uber reveal reveal-delay-4">
+      <span class="p-icon">⬛</span> Uber Eats
+    </a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-left">
+      <p class="section-label reveal">Our Story</p>
+      <h2 class="section-title reveal">Where Every Dish <span style="color:var(--red);font-style:italic;">Tells a Story</span></h2>
+      <p class="reveal">At The Royal Bawarchi, we don't just cook food — we craft memories. Nestled in the heart of New Delhi, our kitchen has been a labour of love since 2010, blending age-old family recipes with bold, unapologetic flavours.</p>
+      <p class="reveal">From the smoky depth of our Tandoor to the slow-simmered richness of our Dal Makhani, every plate that leaves our kitchen carries the soul of authentic Indian cooking. Our bawarchi (master chef) has spent decades perfecting each spice ratio, each cooking technique — so you get perfection, every single time.</p>
+      <p class="reveal">More than a restaurant, we are a gathering place — where families celebrate, friends reconnect, and strangers leave as regulars. Come hungry. Leave happy. That's the Royal Bawarchi promise.</p>
+      <a href="https://maps.app.goo.gl/QFkuvBXipchHiP2h9" target="_blank" class="about-badge reveal">
+        📍 Find Us on Google Maps &rarr;
+      </a>
+    </div>
+    <div class="about-cards">
+      <div class="about-card reveal reveal-delay-1">
+        <div class="about-card-icon">🏆</div>
+        <div>
+          <div class="about-card-num" data-counter="2010" data-type="year">2010</div>
+          <div class="about-card-label">Serving New Delhi Since</div>
+        </div>
+      </div>
+      <div class="about-card reveal reveal-delay-2">
+        <div class="about-card-icon">⭐</div>
+        <div>
+          <div class="about-card-num" data-counter="4.9" data-type="rating">4.9★</div>
+          <div class="about-card-label">Google Rating — 123 Reviews</div>
+        </div>
+      </div>
+      <div class="about-card reveal reveal-delay-3">
+        <div class="about-card-icon">🍽️</div>
+        <div>
+          <div class="about-card-num" data-counter="500" data-type="orders">500+</div>
+          <div class="about-card-label">Happy Orders Every Day</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <p class="section-label reveal" style="color:var(--gold-light);">Our Specialties</p>
+  <h2 class="section-title menu-section-title reveal">Royal <span style="color:var(--gold);font-style:italic;">Menu</span></h2>
+  <div class="gold-divider reveal"><span>🔥</span></div>
+
+  <div class="menu-tabs reveal">
+    <button class="tab-btn active" onclick="switchTab('indian', this)">🫕 Indian</button>
+    <button class="tab-btn" onclick="switchTab('chinese', this)">🥢 Chinese</button>
+    <button class="tab-btn" onclick="switchTab('tandoori', this)">🔥 Tandoori</button>
+  </div>
+
+  <!-- Indian Tab -->
+  <div id="tab-indian" class="tab-content active">
+    <div class="dish-card">
+      <span class="dish-emoji">🫕</span>
+      <div class="dish-name">Dal Makhani</div>
+      <div class="dish-desc">Slow-cooked black lentils simmered overnight with rich butter and cream. A Delhi classic you can never get enough of.</div>
+      <div class="dish-footer">
+        <div class="dish-price">₹180</div>
+        <span class="dish-tag tag-veg">● Veg</span>
+      </div>
+    </div>
+    <div class="dish-card">
+      <span class="dish-emoji">🧀</span>
+      <div class="dish-name">Paneer Butter Masala</div>
+      <div class="dish-desc">Silken cottage cheese cubes in a velvety tomato-butter gravy with aromatic spices. Pure bliss.</div>
+      <div class="dish-footer">
+        <div class="dish-price">₹220</div>
+        <span class="dish-tag tag-veg">● Veg</span>
+      </div>
+    </div>
+    <div class="dish-card">
+      <span class="dish-emoji">🍗</span>
+      <div class="dish-name">Butter Chicken</div>
+      <div class="dish-desc">Tender chicken tikka pieces bathed in a rich, mildly spiced tomato cream sauce. The dish that conquered the world.</div>
+      <div class="dish-footer">
+        <div class="dish-price">₹260</div>
+        <span class="dish-tag tag-nonveg">● Non-Veg</span>
+      </div>
+    </div>
+    <div class="dish-card">
+      <span class="dish-emoji">🍱</span>
+      <div class="dish-name">Veg Thali</div>
+      <div class="dish-desc">A complete royal meal — dal, 2 sabzis, rice, 2 rotis, raita & papad. Fresh, wholesome, satisfying.</div>
+      <div class="dish-footer">
+        <div class="dish-price">₹150</div>
+        <span class="dish-tag tag-veg">● Veg</span>
+      </div>
+    </div>
+    <div class="dish-card">
+      <span class="dish-emoji">🍚</span>
+      <div class="dish-name">Chicken Biryani</div>
+      <div class="dish-desc">Fragrant basmati rice layered with spiced chicken and slow-cooked dum style. Topped with fried onions and saffron.</div>
+      <div class="dish-footer">
+        <div class="dish-price">₹220</div>
+        <span class="dish-tag tag-nonveg">● Non-Veg</span>
+      </div>
+    </div>
+    <div class="dish-card">
+      <span class="dish-emoji">🥘</span>
+      <div class="dish-name">Mutton Curry</div>
+      <div class="dish-desc">Slow-braised mutton in a robust masala gravy with whole spices. Bold, hearty, and deeply satisfying.</div>
+      <div class="dish-footer">
+        <div class="dish-price">₹280</div>
+        <span class="dish-tag tag-nonveg">● Non-Veg</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chinese Tab -->
+  <div id="tab-chinese" class="tab-content">
+    <div class="dish-card">
+      <span class="dish-emoji">🍚</span>
+      <div class="dish-name">Veg Fried Rice</div>
+      <div class="dish-desc">Wok-tossed rice with fresh vegetables, garlic and a secret blend of sauces. Smoky, light and utterly addictive.</div>
+      <div class="dish-footer">
+        <div class="dish-price">₹130</div>
+        <span class="dish-tag tag-veg">● Veg</span>
+      </div>
+    </div>
+    <div class="dish-card">
+      <span class="dish-emoji">🍜</span>
+      <div class="dish-name">Chicken Noodles</div>
+      <div class="dish-desc">Hakka-style wok-fried noodles with shredded chicken, spring onions, and bold Indo-Chinese sauces.</div>
+      <div class="dish-footer">
+        <div class="dish-price">₹160</div>
+        <span class="dish-tag tag-nonveg">● Non-Veg</span>
+      </div>
+    </div>
+    <div class="dish-card">
+      <span class="dish-emoji">🟤</span>
+      <div class="dish-name">Manchurian</div>
+      <div class="dish-desc">Crispy fried vegetable balls tossed in a glossy, tangy Manchurian sauce with garlic and ginger. Street-food royalty.</div>
+      <div class="dish-footer">
+        <div class="dish-price">₹140</div>
+        <span class="dish-tag tag-veg">● Veg</span>
+      </div>
+    </div>
+    <div class="dish-card">
+      <span class="dish-emoji">🧀</span>
+      <div class="dish-name">Chilli Paneer</div>
+      <div class="dish-desc">Crispy paneer cubes stir-fried with bell peppers and onions in a fiery chilli-soy sauce. Hot, tangy, irresistible.</div>
+      <div class="dish-footer">
+        <div class="dish-price">₹170</div>
+        <span class="dish-tag tag-veg">● Veg</span>
+      </div>
+    </div>
+    <div class="dish-card">
+      <span class="dish-emoji">🥟</span>
+      <div class="dish-name">Spring Rolls</div>
+      <div class="dish-desc">Golden crispy rolls filled with seasoned cabbage, carrots and noodles. Served with sweet chilli dipping sauce.</div>
+      <div class="dish-footer">
+        <div class="dish-price">₹120</div>
+        <span class="dish-tag tag-veg">● Veg</span>
+      </div>
+    </div>
+    <div class="dish-card">
+      <span class="dish-emoji">🍜</span>
+      <div class="dish-name">Hakka Noodles</div>
+      <div class="dish-desc">Classic Hakka-style noodles in soy and vinegar sauce with fresh crunchy vegetables. Simple, perfect every time.</div>
+      <div class="dish-footer">
+        <div class="dish-price">₹150</div>
+        <span class="dish-tag tag-veg">● Veg</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tandoori Tab -->
+  <div id="tab-tandoori" class="tab-content">
+    <div class="dish-card">
+      <span class="dish-emoji">🍗</span>
+      <div class="dish-name">Tandoori Chicken</div>
+      <div class="dish-desc">Whole chicken marinated in yoghurt and spices, roasted in our blazing clay Tandoor. Charred outside, juicy inside.</div>
+      <div class="dish-footer">
+        <div class="dish-price">₹280</div>
+        <span class="dish-tag tag-nonveg">● Non-Veg</span>
+      </div>
+    </div>
+    <div class="dish-card">
+      <span class="dish-emoji">🥩</span>
+      <div class="dish-name">Seekh Kebab</div>
+      <div class="dish-desc">Minced lamb mixed with spices and herbs, skewered and grilled in the tandoor until perfectly smoky.</div>
+      <div class="dish-footer">
+        <div class="dish-price">₹240</div>
+        <span class="dish-tag tag-nonveg">● Non-Veg</span>
+      </div>
+    </div>
+    <div class="dish-card">
+      <span class="dish-emoji">🧡</span>
+      <div class="dish-name">Paneer Tikka</div>
+      <div class="dish-desc">Marinated cottage cheese cubes with peppers and onions, grilled in the tandoor with carom seeds and chaat masala.</div>
+      <div class="dish-footer">
+        <div class="dish-price">₹200</div>
+        <span class="dish-tag tag-veg">● Veg</span>
+      </div>
+    </div>
+    <div class="dish-card">
+      <span class="dish-emoji">🐟</span>
+      <div class="dish-name">Fish Tikka</div>
+      <div class="dish-desc">Boneless fish fillets in a spiced mustard-yoghurt marinade, tandoor-grilled to smoky, moist perfection.</div>
+      <div class="dish-footer">
+        <div class="dish-price">₹320</div>
+        <span class="dish-tag tag-nonveg">● Non-Veg</span>
+      </div>
+    </div>
+    <div class="dish-card">
+      <span class="dish-emoji">🤍</span>
+      <div class="dish-name">Malai Tikka</div>
+      <div class="dish-desc">Tender chicken in a mild, creamy cashew-cream marinade. Melt-in-your-mouth texture with a subtle aromatic flavour.</div>
+      <div class="dish-footer">
+        <div class="dish-price">₹260</div>
+        <span class="dish-tag tag-nonveg">● Non-Veg</span>
+      </div>
+    </div>
+    <div class="dish-card">
+      <span class="dish-emoji">🎉</span>
+      <div class="dish-name">Mixed Grill</div>
+      <div class="dish-desc">The ultimate platter — Tandoori Chicken, Seekh Kebab, Malai Tikka & Paneer Tikka. For those who want it all.</div>
+      <div class="dish-footer">
+        <div class="dish-price">₹350</div>
+        <span class="dish-tag tag-nonveg">● Non-Veg</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section id="why">
+  <p class="section-label reveal" style="color:var(--red);">Our Promise</p>
+  <h2 class="section-title why-title reveal">Why Dilli Loves <span style="color:var(--red);font-style:italic;">Royal Bawarchi</span></h2>
+  <div class="gold-divider reveal"><span>❤️</span></div>
+  <div class="why-grid">
+    <div class="why-card reveal reveal-delay-1">
+      <div class="why-icon">🌿</div>
+      <h3>Farm Fresh Daily</h3>
+      <p>We source vegetables, meats and spices fresh every morning. No frozen shortcuts — only the freshest ingredients hit our kitchen.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-2">
+      <div class="why-icon">👨‍🍳</div>
+      <h3>Generational Recipes</h3>
+      <p>Our recipes have been passed down through generations of master chefs (Bawarchis). Authenticity is not our marketing — it's our heritage.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-3">
+      <div class="why-icon">⚡</div>
+      <h3>30 Min Delivery</h3>
+      <p>Hot food, fast delivery. We work with Swiggy, Zomato, Uber Eats and MagicPin to get your order to you in under 30 minutes.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-4">
+      <div class="why-icon">✅</div>
+      <h3>FSSAI Certified</h3>
+      <p>Hygiene-certified kitchen meeting all FSSAI standards. Our kitchen is inspected regularly so you can eat with complete peace of mind.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <p class="section-label reveal" style="color:var(--gold-light);">Google Reviews</p>
+  <h2 class="section-title testimonials-section-title reveal">What Our <span style="color:var(--gold);font-style:italic;">Royal Guests</span> Say</h2>
+  <div class="gold-divider reveal"><span>💬</span></div>
+  <div class="testimonials-wrapper reveal">
+    <div class="testimonials-track" id="testimonialsTrack">
+      <div class="testimonial-slide">
+        <div class="testimonial-card">
+          <div class="t-quote">"</div>
+          <p class="t-text">Honestly the best Dal Makhani I've had in all of Delhi — and I've tried everywhere from Connaught Place to Karol Bagh. The Butter Chicken was absolutely divine. The place has this incredible warmth and the food arrives piping hot. Royal Bawarchi is now our family's go-to every weekend!</p>
+          <div class="t-stars">⭐⭐⭐⭐⭐</div>
+          <div class="t-name">Priya Sharma</div>
+          <div class="t-meta">Google Review · Local Guide · New Delhi</div>
+        </div>
+      </div>
+      <div class="testimonial-slide">
+        <div class="testimonial-card">
+          <div class="t-quote">"</div>
+          <p class="t-text">Ordered the Mixed Grill Platter and Chicken Biryani on Zomato — delivered in 22 minutes flat, still hot and smoky! The kebabs were absolutely restaurant-quality. You can taste the tandoor — real charcoal flavour. This is authentic Dilli ka khana at its finest. Highly recommend to everyone.</p>
+          <div class="t-stars">⭐⭐⭐⭐⭐</div>
+          <div class="t-name">Rahul Verma</div>
+          <div class="t-meta">Google Review · Frequent Customer · Karol Bagh</div>
+        </div>
+      </div>
+      <div class="testimonial-slide">
+        <div class="testimonial-card">
+          <div class="t-quote">"</div>
+          <p class="t-text">Visited with my team for a lunch order and everyone was blown away by the Veg Thali — massive portions, incredibly fresh and everything tasted home-cooked. The Chilli Paneer from the Chinese section was spicy perfection. 4.9 stars is 100% deserved. We will be ordering again very soon!</p>
+          <div class="t-stars">⭐⭐⭐⭐⭐</div>
+          <div class="t-name">Anjali Kapoor</div>
+          <div class="t-meta">Google Review · Verified Purchase · New Delhi</div>
+        </div>
+      </div>
+    </div>
+    <div class="t-dots">
+      <button class="t-dot active" onclick="goToSlide(0)"></button>
+      <button class="t-dot" onclick="goToSlide(1)"></button>
+      <button class="t-dot" onclick="goToSlide(2)"></button>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION & HOURS -->
+<section id="location">
+  <p class="section-label reveal" style="color:var(--red);">Visit Us</p>
+  <h2 class="section-title reveal" style="text-align:center; color:var(--dark);">Find <span style="color:var(--red);font-style:italic;">Royal Bawarchi</span></h2>
+  <div class="gold-divider reveal"><span>📍</span></div>
+  <div class="location-grid">
+    <div class="map-container reveal">
+      <iframe
+        src="https://maps.google.com/maps?q=The+Royal+Bawarchi+Restaurant+New+Delhi&output=embed&z=15"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="The Royal Bawarchi Restaurant Location">
+      </iframe>
+    </div>
+    <div class="location-info">
+      <p class="section-label" style="text-align:left; color:var(--red);">Address & Hours</p>
+      <h3 class="section-title" style="text-align:left; color:var(--dark); font-size:28px; margin-bottom:28px;">Come Visit <span style="color:var(--red);">Us</span></h3>
+      <div class="info-item reveal reveal-delay-1">
+        <div class="info-icon">📍</div>
+        <div>
+          <div class="info-label">Address</div>
+          <div class="info-value">The Royal Bawarchi Restaurant<br>New Delhi, India<br><a href="https://maps.app.goo.gl/QFkuvBXipchHiP2h9" target="_blank">View on Google Maps →</a></div>
+        </div>
+      </div>
+      <div class="info-item reveal reveal-delay-2">
+        <div class="info-icon">📞</div>
+        <div>
+          <div class="info-label">Phone / WhatsApp</div>
+          <div class="info-value"><a href="tel:8800028618">+91 88000 28618</a></div>
+        </div>
+      </div>
+      <div class="info-item reveal reveal-delay-3">
+        <div class="info-icon">🕐</div>
+        <div>
+          <div class="info-label">Opening Hours</div>
+          <div class="info-value">Daily: 11:00 AM – 11:00 PM<br><span style="color:var(--red); font-size:12px;">Open 7 days a week including holidays</span></div>
+        </div>
+      </div>
+      <div class="info-item reveal reveal-delay-4">
+        <div class="info-icon">🛵</div>
+        <div>
+          <div class="info-label">Delivery Radius</div>
+          <div class="info-value">Up to 5 km · Usually under 30 minutes<br><span style="color:#2ECC71; font-size:12px; font-weight:600;">● Currently Accepting Orders</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label reveal" style="color:var(--gold-light);">Get In Touch</p>
+  <h2 class="section-title contact-title reveal">Send Us a <span style="color:var(--gold);font-style:italic;">Message</span></h2>
+  <div class="gold-divider reveal"><span>✉️</span></div>
+  <div class="contact-inner reveal">
+    <div class="contact-form">
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" id="f-name" placeholder="Enter your full name" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" id="f-phone" placeholder="+91 XXXXX XXXXX" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <label>Your Message</label>
+        <textarea id="f-msg" placeholder="Tell us about your order, feedback, or query..."></textarea>
+      </div>
+      <button class="btn-submit" onclick="submitForm()">
+        Send Message 🚀
+      </button>
+      <div id="form-success">✅ Shukriya! We'll get back to you soon on WhatsApp.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo" style="margin-bottom:14px; display:flex;">
+        <span class="nav-logo-icon">👑</span>
+        <div class="nav-logo-text">
+          <span>The Royal</span>
+          <span>Bawarchi</span>
+        </div>
+      </a>
+      <p>Bold Flavours, Royal Experience. Serving authentic Indian, Chinese & Tandoori cuisine in New Delhi since 2010. Rated 4.9★ on Google.</p>
+      <div class="social-links">
+        <a href="https://maps.app.goo.gl/QFkuvBXipchHiP2h9" target="_blank" class="social-link" title="Google Maps">🗺️</a>
+        <a href="tel:8800028618" class="social-link" title="Call Us">📞</a>
+        <a href="https://maps.app.goo.gl/QFkuvBXipchHiP2h9" target="_blank" class="social-link" title="Zomato">🍽️</a>
+        <a href="https://maps.app.goo.gl/QFkuvBXipchHiP2h9" target="_blank" class="social-link" title="Swiggy">🛵</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#menu">Our Menu</a></li>
+        <li><a href="#why">Why Choose Us</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#location">Find Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Order Online</h4>
+      <ul>
+        <li><a href="https://maps.app.goo.gl/QFkuvBXipchHiP2h9" target="_blank">Swiggy</a></li>
+        <li><a href="https://maps.app.goo.gl/QFkuvBXipchHiP2h9" target="_blank">Zomato</a></li>
+        <li><a href="https://maps.app.goo.gl/QFkuvBXipchHiP2h9" target="_blank">MagicPin</a></li>
+        <li><a href="https://maps.app.goo.gl/QFkuvBXipchHiP2h9" target="_blank">Uber Eats</a></li>
+      </ul>
+      <div style="margin-top:20px;">
+        <h4>Call / WhatsApp</h4>
+        <a href="tel:8800028618" style="color:var(--gold); font-weight:700; font-size:17px; text-decoration:none; display:block; margin-top:6px;">📞 88000 28618</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 The Royal Bawarchi Restaurant, New Delhi. All rights reserved.</p>
+    <p>Made with <span class="heart">❤️</span> in India 🇮🇳</p>
+  </div>
+</footer>
+
+<script>
+// ── CURSOR ──
+const cursor = document.getElementById('cursor');
+let mx = 0, my = 0, cx = 0, cy = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+function animateCursor() {
+  cx += (mx - cx) * 0.15;
+  cy += (my - cy) * 0.15;
+  cursor.style.left = cx + 'px';
+  cursor.style.top = cy + 'px';
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+document.querySelectorAll('a, button, .dish-card, .why-card, .about-card, .platform-btn').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+});
+
+// ── SPICE PARTICLES on click ──
+const spices = ['🌶️','🧄','🧅','⭐','✨','🔥','🍃'];
+document.addEventListener('click', e => {
+  for(let i = 0; i < 3; i++) {
+    const p = document.createElement('div');
+    p.className = 'spice-particle';
+    p.textContent = spices[Math.floor(Math.random() * spices.length)];
+    p.style.left = (e.clientX + (Math.random()-0.5)*40) + 'px';
+    p.style.top = (e.clientY + (Math.random()-0.5)*40) + 'px';
+    p.style.animationDelay = (Math.random()*0.3) + 's';
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), 2000);
+  }
+});
+
+// ── NAVBAR SCROLL ──
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ── MOBILE MENU ──
+function openMobileMenu() {
+  document.getElementById('mobileMenu').classList.add('open');
+  document.getElementById('mobileOverlay').classList.add('open');
+}
+function closeMobileMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('mobileOverlay').classList.remove('open');
+}
+
+// ── SCROLL REVEAL ──
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => revealObserver.observe(el));
+
+// ── MENU TABS ──
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ── TESTIMONIAL SLIDER ──
+let currentSlide = 0;
+const track = document.getElementById('testimonialsTrack');
+const dots = document.querySelectorAll('.t-dot');
+function goToSlide(n) {
+  currentSlide = n;
+  track.style.transform = `translateX(-${n * 100}%)`;
+  dots.forEach((d,i) => d.classList.toggle('active', i === n));
+}
+let autoSlide = setInterval(() => goToSlide((currentSlide + 1) % 3), 4000);
+dots.forEach(d => d.addEventListener('click', () => { clearInterval(autoSlide); autoSlide = setInterval(() => goToSlide((currentSlide+1)%3), 4000); }));
+
+// ── COUNTER ANIMATION ──
+function animateCounter(el) {
+  const type = el.dataset.type;
+  const target = parseFloat(el.dataset.counter);
+  const start = performance.now();
+  const duration = 1800;
+  function step(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    if(type === 'year') {
+      el.textContent = Math.round(1990 + (target - 1990) * ease);
+    } else if(type === 'rating') {
+      el.textContent = (target * ease).toFixed(1) + '★';
+    } else {
+      el.textContent = Math.round(target * ease) + '+';
+    }
+    if(progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      animateCounter(e.target);
+      counterObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-counter]').forEach(el => counterObserver.observe(el));
+
+// ── CONTACT FORM ──
+function submitForm() {
+  const name = document.getElementById('f-name').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const msg = document.getElementById('f-msg').value.trim();
+  if(!name || !phone) {
+    alert('Please fill in your name and phone number 🙏');
+    return;
+  }
+  const wa = `https://wa.me/918800028618?text=${encodeURIComponent(`Hi! I'm ${name} (${phone}). ${msg || 'I want to place an order.'}`)}`;
+  window.open(wa, '_blank');
+  document.getElementById('form-success').style.display = 'block';
+  document.getElementById('f-name').value = '';
+  document.getElementById('f-phone').value = '';
+  document.getElementById('f-msg').value = '';
+}
+
+// ── SMOOTH SCROLL ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if(target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
